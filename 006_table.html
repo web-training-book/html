@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>테이블</title>
+    </head>
+    <body>
+        <!--
+        [테이블 태그]
+
+        table: 테이블
+            -> aria-describedby: 표 설명
+
+            caption: 테이블 타이틀
+            tr: 행
+
+                td: 셀(한 칸)
+                    -> colspan: 열 합치기
+                    -> rowspan: 행 합치기
+
+                th: 셀(제목 한 칸)
+                    -> colspan: 열 합치기
+                    -> rowspan: 행 합치기
+        -->
+
+        <h2>[테이블 기본 구조]</h2>
+        <table border="1">
+            <tr>
+                <th>제목 셀</th>
+                <td>1행 2열</td>
+                <td>1행 3열</td>
+            </tr>
+            <tr>
+                <th>제목 셀</th>
+                <td>2행 2열</td>
+                <td>2행 3열</td>
+            </tr>
+        </table>
+        <hr>
+        <h2>[셀 합치기]<h2>
+        <table border="1">
+            <tr>
+                <th>이름</th>
+                <td>Seo, Kyung-Dong</td>
+                <th>연락처</th>
+                <td>web.training.book@gmail.com</td>
+            </tr>
+            <tr>
+                <th>주소</th>
+                <td colspan="3">secret</td>
+            </tr>
+            <tr>
+                <th>자기소개</th>
+                <td colspan="3">개발자를 꿈꾸는 Dreamer</td>
+            </tr>
+        </table>
+        <hr>
+        <h2>[표에 제목 붙이기 1]</h2>
+        <table border="1">
+            <!-- table 태그 바로 다음에 caption 태그가 위치함 -->
+            <caption>
+                <strong>Modern Browser</strong>
+                <p>국내에서 자주 사용하는 모던 브라우저</p>
+            </caption>
+            <tr>
+                <th>브라우저</th>
+                <th>제조업체</th>
+                <th>다운로드</th>
+            </tr>
+            <tr>
+                <th>크롬</th>
+                <td>Google</td>
+                <td>https://www.google.com/chrome/</td>
+            </tr>
+            <tr>
+                <th>파이어폭스</th>
+                <td>Mozilla</td>
+                <td>https://www.mozilla.com/ko.firefox/</td>
+            </tr>
+            <tr>
+                <th>엣지</th>
+                <td>Microsoft</td>
+                <td>https://www.microsoft.com/ko-kr/windows/microsoft-edge</td>
+            </tr>
+        </table>
+        <hr>
+        <h2>[표에 제목 붙이기 2]</h2>
+        <!--
+        figure, figcaption은 표나 이미지 등 어떤 대상에도 사용가능
+
+        figure: 제목(또는 설명) 붙이고 싶은 대상을 감싼다
+        figcaption: 제목(또는 설명)
+        -->
+        <figure>
+            <figcaption>
+                <p>국내에서 자주 사용하는 <b>모던 브라우저</b></p>
+            </figcaption>
+            <table border="1">
+                <tr>
+                    <th>브라우저</th>
+                    <th>제조업체</th>
+                    <th>다운로드</th>
+                </tr>
+                <tr>
+                    <th>크롬</th>
+                    <td>Google</td>
+                    <td>https://www.google.com/chrome/</td>
+                </tr>
+                <tr>
+                    <th>파이어폭스</th>
+                    <td>Mozilla</td>
+                    <td>https://www.mozilla.com/ko.firefox/</td>
+                </tr>
+                <tr>
+                    <th>엣지</th>
+                    <td>Microsoft</td>
+                    <td>https://www.microsoft.com/ko-kr/windows/microsoft-edge</td>
+                </tr>
+            </table>
+            <!--
+            figcaption을 이 위치에 달면, 표 아래 제목이 생긴다
+            -->
+        </figure>
+        <hr>
+        <h2>[표에 대한 설명]</h2>
+        <!--
+        표 설명을 별도의 문장으로 작성한 후 table 태그의 aria-describedby 속성을 이용해서 연결
+        -->
+        <p id="summary">다음 표는 HTML5를 지원하는 모던 브라우저를 정리한 것입니다. 최신 버전일수록 HTML5를 좀더 많이 지원하기 때문에 최신 버전을 사용하는 것이 좋습니다.</p>
+        <table border="1" aria-describedby="summary">
+            <caption>
+                <strong>Modern Browser</strong>
+                <p>국내에서 자주 사용하는 모던 브라우저</p>
+            </caption>
+            <tr>
+                <th>브라우저</th>
+                <th>제조업체</th>
+                <th>다운로드</th>
+            </tr>
+            <tr>
+                <th>크롬</th>
+                <td>Google</td>
+                <td>https://www.google.com/chrome/</td>
+            </tr>
+            <tr>
+                <th>파이어폭스</th>
+                <td>Mozilla</td>
+                <td>https://www.mozilla.com/ko.firefox/</td>
+            </tr>
+            <tr>
+                <th>엣지</th>
+                <td>Microsoft</td>
+                <td>https://www.microsoft.com/ko-kr/windows/microsoft-edge</td>
+            </tr>
+        </table>
+    </body>
+</html>
