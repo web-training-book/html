@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>이미지 맵</title>
+    </head>
+    <body>
+        <!--
+        [이미지 맵]
+
+        map: 하나의 이미지에 여러개의 링크를 지정
+            -> name: 맵의 이름
+
+            area: 링크 지정
+                -> shape: 링크로 사용할 영역의 형태
+                    defalut, rect, circle, poly
+                -> coords: 링크로 사용할 영역의 좌표 또는 크기지정 
+                -> 나머지는 a 태그의 속성과 같음
+        -->
+
+        <h1>[사각형(rect) 영역 이미지 맵]</h1>
+        <p>rect의 영역은 사각형의 왼쪽 상단 좌표와 오른쪽 하단 좌표를 지정</p>
+        <img src="images/kids.jpg" alt="" usemap="#favorites">
+        <map name="favorites">
+            <area shape="rect" coords="10,10,160,200" href="http://cafe.naver.com/doitHTML5" target="_blank">
+            <area shape="rect" coords="220,10,380,200" href="http://www.facebook.com/do.it.HTML5" target="_blank">
+        </map>
+        <hr>
+        <h1>[원(circle) 영역 이미지 맵]</h1>
+        <p>원(circle) 영역은 원의 중심 좌표와 반지름 크기를 지정</p>
+        <img src="images/event.png" alt="책 소개 페이지" usemap="#eventmap">
+        <map name="eventmap">
+            <area shape="circle" coords="229,293,37" href="http://www.easyspub.com" alt="이지스퍼블리싱 홈페이지" target="_blank">
+        </map>
+    </body>
+</html>
