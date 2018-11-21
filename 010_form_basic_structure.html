@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>폼 태그 기본구조</title>
+    </head>
+    <body>
+        <!--
+        [폼 태그]
+
+        form
+            -> name: 폼 이름
+            -> method
+                get, post
+            -> action: 서버 프로그램 지정
+            -> target
+
+            fieldset: 폼 요소들을 그룹으로 묶음
+                legend: 그룹의 이름
+
+            label: 폼 요소에 텍스트를 붙임
+                for: 연결될 폼 요소의 id값
+
+        label를 사용하면, 텍스트까지 클릭 영역이 확장됨
+        -->
+
+        <form name="info" method="post" action="info.jsp">
+            <fieldset>
+                <legend>개인 정보</legend>
+                <ul>
+                    <li>
+                        <label for="name">이름</label>
+                        <input type="text" id="name">
+                    </li>
+                    <li>
+                        <label for="mail">메일 주소</label>
+                        <input type="text" id="mail">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>로그인 정보</legend>
+                <ul>
+                    <li>
+                        <label for="id">아이디</label>
+                        <input type="text" id="id">
+                    </li>
+                    <li>
+                        <label for="pwd">비밀번호</label>
+                        <input type="password" id="pwd">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>수강 과목</legend>
+                <ul>
+                    <li>
+                        <input type="radio" name="subject" id="subject1" value="eng">
+                        <label for="subject1">영어회화</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="subject" id="subject2" value="ch">
+                        <label for="subject2">중국어회화</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="subject" id="subject3" value="jp">
+                        <label for="subject3">일본어회화</label>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </body>
+</html>
