@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>input 태그</title>
+    </head>
+    <body>
+    <!--
+    [input 태그]
+
+    input: 사용자에게 입력을 받기위한 태그
+        -> name: 서버로 넘겨질 때의 변수명
+        -> id: CSS를 위해 지정
+        -> type
+            hidden: 숨김값
+                => name, value
+
+            text: 한줄 텍스트
+                => name, value, size, maxlength
+
+            (text 필드를 기반으로 하는 것들)
+            search: 검색 상자
+            tel: 전화번호 입력 필드
+            url: URL 입력 필드
+            email: 이메일 입력 필드
+                => multiple
+            password: 비밀번호 입력 필드
+                => value 속성 없음
+
+            (날짜와 시간 공통 속성: min, max, step, value)
+            datetime: UTC 기준(세계표준시, 한국은 UTC+9) 날짜와 시간(연,월,일,시,분,초,밀리초)
+            datetime-local: 사용자 지역 기준 날짜와 시간
+                => value: 2018-03-02T18:00 형식으로 지정
+            date: 사용자 지역 기준 날짜(연,월,일)
+            time: 사용자 지역 기준 시간(시,분,초,밀리초)
+                => value: 00:00 ~ 23:59 값 사이에 지정
+            month: 사용자 지역 기준 연,월
+            week: 사용자 지역 기준 연,주
+
+            number: 숫자 입력 필드
+                => min, max, step, value
+            range: 숫자 입력 슬라이드
+                => min, max, step, value
+
+            checkbox: 체크박스(2개 이상 선택 가능)
+                => name(그룹내 name속성값 다름), value, checked(옵션)
+            radio: 라디오버튼(1개만 선택 가능)
+                => name(그룹내 name속성값 동일), value, checked(옵션)
+
+            color: 색상표
+                => name, value: #16진수값
+            file: 파일 첨부
+                => multiple: 2개 이상
+
+            submit: 전송 버튼
+                => input 태그에서 아래 속성을 사용하면, form 태그에서 지정한 값을 무시함
+                => formaction, formenctype, formmethod, formnovalidate, formtarget
+            image: submit + 버튼 이미지 지정
+                => submit에서 사용하는 속성 모두 사용가능
+                => src: 이미지 위치 지정
+                => height, width 이미지의 크기 지정가능
+            reset: 모든 폼 요소의 값 지우기 버튼
+            button: 버튼(기능없음, 자바스크립 함수 호출시 사용)
+                => onclick: 자바스크립트 함수 지정
+        
+        autofocus: 마우스 커서를 위치시킴
+        placeholder: 힌트 텍스트
+        readonly: 읽기전용
+        required: 필수입력 필드 지정
+
+        min, max, step: 시간,날짜,숫자 타입일 경우 사용가능
+
+        size, minlength, maxlength: 텍스트일 경우 사용가능
+        단, minlength는 지원하는 브라우저가 적음
+    -->
+
+    <h2>hidden</h2>
+    <p>숨김값</p>
+    <p>name, value</p>
+    <input type="hidden" name="agreement" value="Y">
+    <hr>
+    <h2>text</h2>
+    <p>name, value, size: 필드의크기, maxlength: 입력 가능한 최대 문자개수</p>
+    <p>value가 지정되지 않으면 빈 텍스트 필드 표시</p>
+    <input type="text" name="user_id" size="10" maxlength="15">
+    <hr>
+    <h2>password</h2>
+    <p>text 필드와 같으나, value 속성이 없음</p>
+    <input type="password" name="user_password" size="10" maxlength="15">
+    <hr>
+    <h2>로그인 폼 예제</h2>
+    <form name="loginform" method="post" action="login.do" autocomplete="off">
+        <input type="hidden" name="url" value="http://www.allabouthtml.com">
+        <input type="hidden" name="slevel" value="1">
+        <fieldset>
+            <legend>로그인</legend>
+            <label for="id">아이디</label>
+            <input type="text" name="id" id="id" maxlength="50">
+            <label for="inputpwd">비밀번호</label>
+            <input type="password" name="pw" id="inputpwd" maxlength="32">
+            <input type="submit" value="로그인">
+            <!--
+            버튼은 앞으로 button 태그 사용할 것
+            <button type="submit">로그인</button>
+            -->
+        </fieldset>
+    </form>
+    <hr>
+    <h2>search</h2>
+    <input type="search">
+    <p>text 필드와 속성은 같음</p>
+    <p>지우기(x 표시) 기능</p>
+    <hr>
+    <h2>url</h2>
+    <form>
+        <input type="url">
+        <input type="submit">
+    </form>
+    <p>text 필드와 속성은 같음</p>
+    <p>브라우저에서 url 유효성 검사</p>
+    <hr>
+    <h2>email</h2>
+    <form>
+        <input type="email">
+        <input type="submit">
+    </form>
+    <p>text 필드와 속성은 같음</p>
+    <p>브라우저에서 email 유효성 검사</p>
+    <hr>
+    <h2>tel</h2>
+    <input type="tel">
+    <p>text 필드와 속성은 같음</p>
+    <p>유효성 검사 없음</p>
+    <hr>
+    <h2>회원가입 예제</h2>
+    <form>
+        <fieldset>
+            <legend>로그인 정보</legend>
+            <ul>
+                <li>
+                    <label for="user-id">아이디</label>
+                    <input type="text" id="user-id">
+                </li>
+                <li>
+                    <label for="user-pw">비밀번호</label>
+                    <input type="password" id="user-pw">
+                </li>
+                <li>
+                    <label for="user-repw">비밀번호 확인</label>
+                    <input type="password" id="user-repw">
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>
+                    <label for="user-name">이름</label>
+                    <input type="text" id="user-name">
+                </li>
+                <li>
+                    <label for="mail">메일 주소</label>
+                    <input type="email" id="mail">
+                </li>
+                <li>
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone">
+                </li>
+                <li>
+                    <label for="homep">블로그/홈페이지</label>
+                    <input type="url" id="homep">
+                </li>
+            </li>
+        </fieldset>
+        <input type="submit" value="가입하기">
+    </form>
+    <hr>
+    <h2>number</h2>
+    <p>숫자 입력 필드</p>
+    <p>min, max, step, value</p>
+    <p>브라우저에 따라 스핀버튼 생김</p>
+    <input type="number" min="0" max="10" step="2" value="0">
+    <hr>
+    <h2>range</h2>
+    <p>min, max, step, value</p>
+    <p>슬라이드로 숫자 입력</p>
+    <input type="range" min="1" max="10" step="2" value="1">
+    <hr>
+    <h2>숫자 입력 예제</h2>
+    <form>
+        <fieldset>
+            <legend>등록 정보</legend>
+            <ul>
+                <li>
+                    <label for="member">참여인원<small>(최대10명)</small></label>
+                    <input type="number" id="member" min="0" max="10" step="1" value="1">
+                </li>
+                <li>
+                    <label for="stuffs">지원물품<small>(1인당5개)</small></label>
+                    <input type="number" id="stuffs" min="0" max="50" step="5" value="5">
+                </li>
+                <li>
+                    <label for="satis">희망단계<small>(하,중,상)</small></label>
+                    <input type="range" id="satis" min="1" max="3" value="2">
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <hr>
+    <h2>radio & checkbox</h2>
+    <form>
+        <fieldset>
+            <legend>신청 과목</legend>
+            <p>이 달에 신청할 과목을 선택하세요(1과목만 가능)</p>
+            <label><input type="radio" name="subject" value="speaking" checked>회화</label>
+            <label><input type="radio" name="subject" value="grammar">문법</label>
+            <label><input type="radio" name="subject" value="writing">작문</label>
+        </fieldset>
+        <fieldset>
+            <legend>메일링</legend>
+            <p>메일로 받고 싶은 뉴스 주제를 선택해 주세요(복수 선택 가능)</p>
+            <label><input type="checkbox" name="mailing1" value="news">해외 단신</label>
+            <label><input type="checkbox" name="mailing2" value="dialog">5분 회화<label>
+        </fieldset>
+    </form>
+    <hr>
+    <h2>color</h2>
+    <p>일부 브라우저만 지원</p>
+    <p>색상값은 16진수값만 지원(red, yellow 등의 색상이름 사용불가)</p>
+    <label>선호색상<input type="color" value="#00ff00"></label>
+    <hr>
+    <h2>date</h2>
+    <p>일부 브라우저만 지원</p>
+    <p>연,월,일</p>
+    <label><input type="date"></label>
+    <label><input type="date"></label>
+    <hr>
+    <h2>time & datetime-local</h2>
+    <h3>원하는 대관시간을 선택하세요(오늘)</h3>
+    <label>시작시간<input type="time" value="09:00"></label>
+    <label>종료시간<input type="time" value="18:00"></label>
+    <h3>대관시간을 선택하세요(다른 날짜)</h3>
+    <label>시작시간<input type="datetime-local" value="2016-03-02T09:00"></label>
+    <label>종료시간<input type="datetime-local" value="2016-03-02T18:00"></label>
+    <hr>
+    <h2>submit & reset</h2>
+    <p> submit: form의 action에서 지정한 곳으로 데이터 전송</p>
+    <form action="register.php" method="post">
+        <label>메일주소<input type="email"></label>
+        <input type="submit" value="제출">
+        <input type="reset" value="다시입력">
+    </form>
+    <hr>
+    <h2>image</h2>
+    <p>submit + 버튼에 이미지 사용</p>
+    <form action="login.php" method="post">
+        <label>아이디<input type="text"></label>
+        <label>비밀번호<input type="password"></label>
+        <input type="image" src="images/login.jpg" alt="login">
+    </form>
+    <hr>
+    <h2>button</h2>
+    <p>자체 기능이 없고, 오직 버튼만 만들어짐</p>
+    <p>자바스크립트 함수를 실행시킬때 사용</p>
+    <input type="button" value="새탭열기" onclick="window.open()">
+    <hr>
+    <h2>file</h2>
+    <p>파일 첨부</p>
+    <label>첨부파일<input type="file"></label>
+    <hr>
+    <h2>autofocus, required, placeholder, readonly</h2>
+    <label for="uname">이름</label>
+    <input type="text" id="uname" autofocus required>
+    <label for="uid">학번</label>
+    <input type="text" id="uid" placeholder="하이픈없이 입력">
+    <label for="subj">영어회화(초급)</label>
+    <input type="text" value="오전 9:00~11:00" readonly>
+    </body>
+</html>
