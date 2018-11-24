@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>output tag</title>
+    </head>
+    <body>
+        <!--
+        [output 태그]
+
+        output: 계산 결과
+
+        output 태그로 묶인 부분이 일반 텍스트가 아니라
+        계산의 결과 값이라는 점을 브라우저가 인식할 수 있다
+        -->
+        <form oninput="result.value=parseInt(num1.value)+parseInt(num2.value)">
+            <input type="number" name="num1" value="0">
+            <input type="number" name="num2" value="0">
+            =<output name="result"></output>
+        </form>
+    </body>
+</html>
