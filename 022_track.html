@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>track</title>
+        <style>
+            body {
+                margin-top:20px;
+                margin-left:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+        <track kind="자막종류" src="경로" srclang="언어" label="제목" default>
+        kind: 자막종류
+            subtitles: 자막, 화면표시
+            captions: 캡션, 청각장애인용자막, 화면표시
+            descriptions: 비디오 컨텐츠에 대한 설명, 화면표시 안됨
+            chapters: 비디오 탐색을 위한 장 제목, 화면표시 안됨
+            metadata: 비디오 컨텐츠 정보, 화면표시 안됨
+        src: 파일경로
+        srclang: 언어, subtitles사용시 반드시 지정
+        label: 자막을 식별할 이름
+        default: 자막이 여러개일경우, 기본자막으로 설정
+
+        (팁)
+        ie11이외의 브라우저에서 테스트를 위해서는 웹서버 필요함
+        -->
+
+        <video controls muted autoplay>
+            <source src="media/Painting.mp4" type="video/mp4">
+            <source src="media/Painting.ogv" type="video/ogg">
+            <source src="media/Painting.webm" type="video/webm">
+            <track kind="subtitles" src="media/Painting.vtt" srclang="ko" lable="Korean" default>
+        </video>
+    </body>
+</html>
